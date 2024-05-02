@@ -97,8 +97,8 @@ facebook_url: {
     required: false,
     unique: false
 },
-fun_fact: {
-    type: String,
+funfacts: {
+    type: [String],
     required: false,
     unique: false
 }
