@@ -2,7 +2,7 @@ const { nextTick } = require("process");
 const State = require("../Model/state");
 
 const getAllStates = async (req,res) =>{
-    console.log(req?.query)
+    console.log(req?.query)// "states/AZ/capital" -> /:code/capital
     if(typeof req?.query?.contig != "undefined"){
         if(req?.query?.contig==='true'){
             console.log("contig is true")
@@ -78,11 +78,7 @@ const getAdmission = async(req, res) =>{
     res.status(200).json({"state" : states.state, "admission" : states.admission_date});
 }
 
-const getNoncontiguous = async(req, res) =>{
-    const states = await State.find().sort({"admission_number": -1}).limit(2);
-    if(!states){return res.status(400).json({message: "Oopsie Poopsie! Didn't work!"})}
-    return(states);
-}
+
 //find one state based on the state code, must have the two-letter state code, in the URL
 const getState = async (req, res) =>{
     if(!req.params.code){
