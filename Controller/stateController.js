@@ -173,7 +173,6 @@ module.exports = {
     getState, 
     addAFunFact, 
     getContiguous, 
-    getNoncontiguous, 
     getCapital,
     getNickname,
     getPopulation,
